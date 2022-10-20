@@ -3,9 +3,10 @@ package arrays;
 import java.util.Scanner;
 
 public class ModificarOrdenado {
+    public static char[] array = arreglo.arreglo();
+
     public void modificar(char letra, char letra2) {
         //importar el array del ejercicio anterior
-        char[] array = InsertarOrdernado.arreglos;
         //buscar un elemento en el array y reemplazarlo
         Scanner sc = new Scanner(System.in);
         try {

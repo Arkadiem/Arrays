@@ -129,6 +129,7 @@ public class MenuOrdenado {
                                     System.out.print("Introduce otra letra: ");
                                     char letra2 = sn.next().charAt(0);
                                     ModificarOrdenado modificar = new ModificarOrdenado();
+                                    modificar.modificar(letra, letra2);
                                     System.out.println("¿Has terminado de realizar todas tus operaciones? s/n");
                                     salmen = sn.next();
                                     if (salmen.equals("s") ){
