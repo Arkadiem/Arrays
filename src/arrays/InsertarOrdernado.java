@@ -2,21 +2,18 @@ package arrays;
 
 import java.util.Scanner;
 
-class InsertarOrdernado() {
+public class InsertarOrdernado{
     public static char[] arreglos = arreglo.arreglo();
         Scanner sc = new Scanner(System.in);
-        char letra;
+    int i, j;
+    public void llenarArreglo(char letra) {
         // llenar el array
-        for (i = 0; i < arreglos.length; i++) {
-            System.out.print("Introduce una letra: ");
-            letra = sc.next().charAt(0);
             if (Character.isLetter(letra)) {
                 arreglos[i] = letra;
             } else {
                 System.out.println("No es una letra");
                 i--;
             }
-        }
         // ordenar el array
         for (int r = 0; r < arreglos.length; r++)
         {
@@ -40,10 +37,5 @@ class InsertarOrdernado() {
                 }
             }
         }
-
-        // mostrar el array ordenado
-        System.out.println("Array ordenado");
-        for (i = 0; i < arreglos.length; i++) {
-            System.out.print(arreglos[i] + " ");
-        }
+    }
 }

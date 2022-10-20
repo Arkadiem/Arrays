@@ -89,7 +89,11 @@ public class MenuOrdenado {
 
                                 do {
                                     System.out.println("4. Insertar");
-
+                                    char letra;
+                                    System.out.println("Ingresa la letra que deseas insertar");
+                                    letra = sn.next().charAt(0);
+                                    InsertarOrdernado insertar = new InsertarOrdernado();
+                                    insertar.llenarArreglo(letra);
                                     System.out.println("¿Has terminado de realizar todas tus operaciones? s/n");
                                     salmen = sn.next();
                                     if (salmen.equals("s") ){
