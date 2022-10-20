@@ -165,6 +165,5 @@ public class MenuOrdenado {
                         sn.next();
                     }
                 }
-
     }
 }
