@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MenuOrdenado {
-    static char[] array = InsertarOrdernado.arreglos;
+    public static char[] array = arreglo.arreglo();
     public static void main(String[] args) {
                 Scanner sn = new Scanner(System.in);
                 String salmen = "s";
@@ -71,7 +71,7 @@ public class MenuOrdenado {
                             case 3:
                                 do {
                                     System.out.println("3. Buscar");
-
+                                    BuscarOrdenado buscar = new BuscarOrdenado();
                                     System.out.println("¿Has terminado de realizar todas tus operaciones? s/n");
                                     salmen = sn.next();
                                     if (salmen.equals("s") ){
@@ -109,7 +109,6 @@ public class MenuOrdenado {
                             case 5:
                                 do {
                                     System.out.println("5. Eliminar");
-
                                     System.out.println("¿Has terminado de realizar todas tus operaciones? s/n");
                                     salmen = sn.next();
                                     if (salmen.equals("s") ){

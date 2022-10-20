@@ -1,16 +1,13 @@
 package arrays;
+
 import java.util.Scanner;
 
 public class BuscarOrdenado {
-    public void miBuscarOrdenado() {
-        //importar el array del ejercicio anterior
-        char[] array = InsertarOrdernado.arreglos;
-        //buscar un elemento en el array
-        Scanner sc = new Scanner(System.in);
-        try {
-            System.out.print("Introduce una letra: ");
-            char letra = sc.next().charAt(0);
-            int i = 0;
+    Scanner sc = new Scanner(System.in);
+    //importar el array del ejercicio anterior
+    int i = 0;
+    public static char[] array = arreglo.arreglo();
+    public void BuscarOrdenado(char letra) {
             while (i < array.length && array[i] != letra) {
                 i++;
             }
@@ -19,8 +16,5 @@ public class BuscarOrdenado {
             } else {
                 System.out.println("La letra " + letra + " no está en el array");
             }
-        } catch (Exception e) {
-            System.out.println("No es una letra o el arreglo está vacío");
-        }
     }
 }
