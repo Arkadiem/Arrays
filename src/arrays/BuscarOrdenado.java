@@ -1,11 +1,10 @@
 package arrays;
-
 import java.util.Scanner;
 
 public class BuscarOrdenado {
-    public static void main(String[] args) {
+    public void miBuscarOrdenado() {
         //importar el array del ejercicio anterior
-        char[] array = InsertarOrdernado.array;
+        char[] array = InsertarOrdernado.arreglos;
         //buscar un elemento en el array
         Scanner sc = new Scanner(System.in);
         try {
