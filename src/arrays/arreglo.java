@@ -3,7 +3,7 @@ package arrays;
 import java.util.Scanner;
 
 public class arreglo {
-    public static char[] arreglos = new char[10];
+    public static char[] arreglos = new char[5];
     Scanner sc = new Scanner(System.in);
     int i, j;
     public void llenarArreglo(char letra) {
@@ -38,19 +38,22 @@ public class arreglo {
             }
         }
     }
-    public void BuscarOrdenado(char letra) {
+    public int BuscarOrdenado(char letra) {
+        int inicio = 0;
         if (Character.isLetter(letra)) {
             for (int i = 0; i < arreglos.length; i++) {
                 if (arreglos[i] == letra) {
                     System.out.println("La letra " + letra + " se encuentra en la posición " + i);
+                    inicio = 1;
                 }
             }
-            if (arreglos[i] != letra) {
+            if (inicio == 0) {
                 System.out.println("La letra " + letra + " no se encuentra en el arreglo");
             }
         } else {
             System.out.println("No es una letra");
         }
+        return inicio;
     }
 
     public void mostrarArreglo() {
@@ -76,7 +79,8 @@ public class arreglo {
     public void modificarArreglo(char letra, char letra2) {
         //buscar un elemento en el array y reemplazarlo
         try {
-            if (Character.isLetter(letra)) {
+            int res = BuscarOrdenado(letra);
+            if (res == 1) {
                 for (int i = 0; i < arreglos.length; i++) {
                     if (arreglos[i] == letra) {
                         arreglos[i] = letra2;
@@ -108,8 +112,6 @@ public class arreglo {
                 // mostrar el array ordenado
                 System.out.println("Array nuevo");
                 mostrarArreglo();
-            } else {
-                System.out.println("No es una letra");
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
