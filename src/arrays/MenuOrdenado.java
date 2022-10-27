@@ -35,7 +35,6 @@ public class MenuOrdenado {
                                 do {
                                     System.out.println("1. Inicializar / Borrar arreglo");
                                     operaciones.borrarArreglo();
-                                    System.out.println("arreglo borrado");
                                     System.out.println("¿Has terminado de realizar todas tus operaciones? s/n");
                                     salmen = sn.next();
                                     if (salmen.equals("s") ){
@@ -53,11 +52,7 @@ public class MenuOrdenado {
 
                                 do {
                                     System.out.println("2. Mostrar arreglo");
-                                    if (arreglo.arreglos[0] == ' ') {
-                                        System.out.println("El arreglo está vacío");
-                                    } else {
-                                        operaciones.mostrarArreglo();
-                                    }
+                                    operaciones.mostrarArreglo();
                                     System.out.println("¿Has terminado de realizar todas tus operaciones? s/n");
                                     salmen = sn.next();
                                     if (salmen.equals("s") ){
@@ -73,13 +68,9 @@ public class MenuOrdenado {
                             case 3:
                                 do {
                                     System.out.println("3. Buscar");
-                                    if (arreglo.arreglos[0] == ' ') {
-                                        System.out.println("El arreglo está vacío");
-                                    } else {
-                                        System.out.println("Ingresa la letra que deseas buscar");
-                                        char letra = sn.next().charAt(0);
-                                        operaciones.BuscarOrdenado(letra);
-                                    }
+                                    System.out.println("Ingresa la letra que deseas buscar");
+                                    char letra = sn.next().charAt(0);
+                                    operaciones.BuscarOrdenado(letra);
                                     System.out.println("¿Has terminado de realizar todas tus operaciones? s/n");
                                     salmen = sn.next();
                                     if (salmen.equals("s") ){
@@ -116,15 +107,11 @@ public class MenuOrdenado {
                             case 5:
                                 do {
                                     System.out.println("5. Eliminar");
-                                    if (arreglo.arreglos[0] == ' ') {
-                                        System.out.println("El arreglo está vacío");
-                                    } else {
-                                        System.out.println("Ingresa la letra que deseas eliminar");
-                                        char letra = sn.next().charAt(0);
-                                        operaciones.eliminarArreglo(letra);
-                                        System.out.println("¿Has terminado de realizar todas tus operaciones? s/n");
+                                    System.out.println("Ingresa la letra que deseas eliminar");
+                                    char letra = sn.next().charAt(0);
+                                    operaciones.eliminarArreglo(letra);
+                                    System.out.println("¿Has terminado de realizar todas tus operaciones? s/n");
                                     salmen = sn.next();
-                                    }
                                     if (salmen.equals("s") ){
                                         salirmenu = true;
                                     }
@@ -136,16 +123,12 @@ public class MenuOrdenado {
                                 break;
                             case 6:
                                 do {
-                                    if (arreglo.arreglos[0] == ' ') {
-                                        System.out.println("El arreglo está vacío");
-                                    } else {
-                                        System.out.println("6. Modificar");
-                                        System.out.print("Introduce la letra que desea reemplazar: ");
-                                        char letra = sn.next().charAt(0);
-                                        System.out.print("Introduce la letra con la que se desea reemplazar: ");
-                                        char letra2 = sn.next().charAt(0);
-                                        operaciones.modificarArreglo(letra, letra2);
-                                    }
+                                    System.out.println("6. Modificar");
+                                    System.out.print("Introduce la letra que desea reemplazar: ");
+                                    char letra = sn.next().charAt(0);
+                                    System.out.print("Introduce la letra con la que se desea reemplazar: ");
+                                    char letra2 = sn.next().charAt(0);
+                                    operaciones.modificarArreglo(letra, letra2);
                                     System.out.println("¿Has terminado de realizar todas tus operaciones? s/n");
                                     salmen = sn.next();
                                     if (salmen.equals("s") ){
