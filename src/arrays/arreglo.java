@@ -1,47 +1,68 @@
 package arrays;
 
-import java.util.Scanner;
-
 public class arreglo {
-    public static char[] arreglos = new char[3];
+    // maximo de elementos del arreglo
+    // max debe ser igual al tamaño del arreglo menos 1
+    public static int max = 19;
+    public static char[] arreglos = new char[20];
     public static int N = -1;
-    public static int max = 2;
-    Scanner sc = new Scanner(System.in);
-    int i, j;
+    int i;
     public void llenarArreglo(char letra) {
+
         // llenar el array
         if (Character.isLetter(letra)) {
-            if (N < max) {
-                arreglos[i] = letra;
+
+            if (N < max-1) {
+                int posicion = 0;
                 N++;
-                // ordenar el array
+                arreglos[N] = letra;
+                for (int k = 0; k < arreglos.length; k++)
+                {
+                    for (int f = 0; f < arreglos.length-1; f++)
+                    {
+                        if (arreglos[f] > arreglos[f+1])
+                        {
+                            char aux = arreglos[f];
+                            arreglos[f] = arreglos[f+1];
+                            arreglos[f+1] = aux;
+                        }
+                    }
+                }
                 for (int r = 0; r < arreglos.length; r++)
                 {
-                    for (    j = 0; j < arreglos.length - 1; j++)
+                    for (int j = 0; j < arreglos.length-1; j++)
                     {
-                        char charX = arreglos[j];
-                        char charY = arreglos[j + 1];
-                        if (charX >=65 && charX <= 90 )
+                        char aux1 = arreglos[j];
+                        char aux2 = arreglos[j + 1];
+
+                        if (aux1 >= 65 && aux1 <= 90)
                         {
-                            charX = (char)(charX + 32);
+                            aux1 = (char)(aux1 + 32);
                         }
-                        if (charY >= 65 && charY <= 90)
+                        if (aux2 >= 65 && aux2 <= 90)
                         {
-                            charY = (char)(charY + 32);
+                            aux2 = (char)(aux2 + 32);
                         }
-                        if (charX > charY)
+
+                        if (aux1 > aux2)
                         {
                             char aux = arreglos[j];
                             arreglos[j] = arreglos[j + 1];
                             arreglos[j + 1] = aux;
                         }
                     }
+                    for (int i = 0; i < arreglos.length; i++)
+                    {
+                        if (arreglos[i] == letra)
+                        {
+                            posicion = i;
+                        }
+                    }
                 }
+                System.out.println("Se inserto en la posicion: " + (posicion-(max-N)));
             } else {
                 System.out.println("El arreglo esta lleno");
             }
-            System.out.println("max = "+max);
-            System.out.println("contador = "+N);
         } else {
             System.out.println("No es una letra");
             i--;
@@ -53,13 +74,17 @@ public class arreglo {
             if (N > -1){
                 for (int i = 0; i < arreglos.length; i++) {
                     if (arreglos[i] == letra) {
-                        System.out.println("La letra " + letra + " se encuentra en la posición " + i);
+                        System.out.println("La letra " + letra + " se encuentra en la posición " + (i-(max-N)));
                         inicio = 1;
                     }
                 }
                 if (inicio == 0) {
                     System.out.println("La letra " + letra + " no se encuentra en el arreglo");
                 }
+            }
+            else {
+                System.out.println("El arreglo esta vacio");
+                System.out.println("\uD83D\uDE10");
             }
         } else {
             System.out.println("No es una letra");
@@ -71,48 +96,65 @@ public class arreglo {
         // mostrar el array ordenado
         if (N > -1) {
             for (int i = 0; i < arreglos.length; i++) {
-                System.out.print(arreglos[i] + " ");
+                if (Character.isLetter(arreglos[i])) {
+                    System.out.print(arreglos[i] + " ");
+                }
             }
         }
         else {
             System.out.println("El arreglo esta vacio");
+            System.out.println("\uD83D\uDE10");
         }
     }
 
-    public void eliminarArreglo(char letra) {
+    public int eliminarArreglo(char letra) {
         // eliminar el array
+        int eli = 0;
         if (Character.isLetter(letra)) {
             if (N > -1) {
                 for (int i = 0; i < arreglos.length; i++) {
                     if (arreglos[i] == letra) {
                         arreglos[i] = ' ';
                         N--;
+                        eli = 1;
                     }
+                }
+                if (eli == 0) {
+                    System.out.println("La letra " + letra + " no se encuentra en el arreglo");
+                }
+                else {
+                    System.out.println("La letra " + letra + " se elimino del arreglo");
                 }
             } else {
                 System.out.println("El arreglo esta vacio");
+                System.out.println("\uD83D\uDE10");
             }
         } else {
             System.out.println("No es una letra");
         }
+        return eli;
     }
 
     public void modificarArreglo(char letra, char letra2) {
         //buscar un elemento en el array y reemplazarlo
-        try {
+        if (N > -1){
             int res = BuscarOrdenado(letra);
-            if (res == 1 || N > -1) {
-                eliminarArreglo(letra);
-                llenarArreglo(letra2);
-                // mostrar el array ordenado
-                System.out.println("Array nuevo");
-                mostrarArreglo();
+            if (res == 1) {
+                int res2 = eliminarArreglo(letra);
+                if (res2 == 1) {
+                    llenarArreglo(letra2);
+                    // mostrar el array ordenado
+                    System.out.println("Array nuevo: ");
+                    mostrarArreglo();
+                }
             }
             else {
                 System.out.println("No se puede modificar");
             }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        }
+        else {
+            System.out.println("El arreglo esta vacio");
+            System.out.println("\uD83D\uDE10");
         }
     }
     public void creditos() {
@@ -121,6 +163,17 @@ public class arreglo {
         System.out.println("Jason Urbina Sotelo");
         System.out.println("Gael Emmanuel Acosta Serrano");
         System.out.println("Jose Angel Navarrete Valles");
+        // among us en consola
+        System.out.println("           __________");
+        System.out.println("          /          |");
+        System.out.println("     ____|   ______  |");
+        System.out.println("    |    |  |      | |");
+        System.out.println("    |    |   _____/  |");
+        System.out.println("    |    |           |");
+        System.out.println("     ¯¯¯¯|   _____   |");
+        System.out.println("         |  |     |  |");
+        System.out.println("         |  |     |  |");
+        System.out.println("         |__|     |__|");
     }
     public void borrarArreglo() {
         // borrar el array
@@ -133,10 +186,11 @@ public class arreglo {
         }
         else {
             System.out.println("El arreglo ya esta vacio");
-            System.out.println("'_'");
-            System.out.println("'_'");
-            System.out.println("'_'");
-            System.out.println("'_'");
+            System.out.println("\uD83D\uDE10");
+            System.out.println("\uD83D\uDE10");
+            System.out.println("\uD83D\uDE10");
+            System.out.println("\uD83D\uDE10");
+            System.out.println("\uD83D\uDE10");
         }
     }
 }
