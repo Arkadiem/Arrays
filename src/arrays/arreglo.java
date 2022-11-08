@@ -4,7 +4,7 @@ public class arreglo {
     // maximo de elementos del arreglo
     // max debe ser igual al tamaño del arreglo menos 1
     public static int max = 19;
-    public static char[] arreglos = new char[20];
+    public static char[] caracters = new char[20];
     public static int N = -1;
     int i;
     public void llenarArreglo(char letra) {
@@ -12,54 +12,54 @@ public class arreglo {
         // llenar el array
         if (Character.isLetter(letra)) {
 
-            if (N < max-1) {
-                int posicion = 0;
+            if (N < max) {
+                int pos = 0;
                 N++;
-                arreglos[N] = letra;
-                for (int k = 0; k < arreglos.length; k++)
+                caracters[i] = letra;
+                for (int k = 0; k < caracters.length; k++)
                 {
-                    for (int f = 0; f < arreglos.length-1; f++)
+                    for (int f = 0; f < caracters.length-1; f++)
                     {
-                        if (arreglos[f] > arreglos[f+1])
+                        if (caracters[f] > caracters[f+1])
                         {
-                            char aux = arreglos[f];
-                            arreglos[f] = arreglos[f+1];
-                            arreglos[f+1] = aux;
+                            char aux = caracters[f];
+                            caracters[f] = caracters[f+1];
+                            caracters[f+1] = aux;
                         }
                     }
                 }
-                for (int r = 0; r < arreglos.length; r++)
+                for (int r = 0; r < caracters.length; r++)
                 {
-                    for (int j = 0; j < arreglos.length-1; j++)
+                    for (int j = 0; j < caracters.length-1; j++)
                     {
-                        char aux1 = arreglos[j];
-                        char aux2 = arreglos[j + 1];
+                        char charx = caracters[j];
+                        char chary = caracters[j + 1];
 
-                        if (aux1 >= 65 && aux1 <= 90)
+                        if (charx >= 65 && charx <= 90)
                         {
-                            aux1 = (char)(aux1 + 32);
+                            charx = (char)(charx + 32);
                         }
-                        if (aux2 >= 65 && aux2 <= 90)
+                        if (chary >= 65 && chary <= 90)
                         {
-                            aux2 = (char)(aux2 + 32);
+                            chary = (char)(chary + 32);
                         }
 
-                        if (aux1 > aux2)
+                        if (charx > chary)
                         {
-                            char aux = arreglos[j];
-                            arreglos[j] = arreglos[j + 1];
-                            arreglos[j + 1] = aux;
+                            char auxin = caracters[j];
+                            caracters[j] = caracters[j + 1];
+                            caracters[j + 1] = auxin;
                         }
                     }
-                    for (int i = 0; i < arreglos.length; i++)
+                    for (int i = 0; i < caracters.length; i++)
                     {
-                        if (arreglos[i] == letra)
+                        if (caracters[i] == letra)
                         {
-                            posicion = i;
+                            pos = i;
                         }
                     }
                 }
-                System.out.println("Se inserto en la posicion: " + (posicion-(max-N)));
+                System.out.println("Se inserto en la posicion: " + (pos-(max-N)));
             } else {
                 System.out.println("El arreglo esta lleno");
             }
@@ -72,8 +72,8 @@ public class arreglo {
         int inicio = 0;
         if (Character.isLetter(letra)) {
             if (N > -1){
-                for (int i = 0; i < arreglos.length; i++) {
-                    if (arreglos[i] == letra) {
+                for (int i = 0; i < caracters.length; i++) {
+                    if (caracters[i] == letra) {
                         System.out.println("La letra " + letra + " se encuentra en la posición " + (i-(max-N)));
                         inicio = 1;
                     }
@@ -95,9 +95,9 @@ public class arreglo {
     public void mostrarArreglo() {
         // mostrar el array ordenado
         if (N > -1) {
-            for (int i = 0; i < arreglos.length; i++) {
-                if (Character.isLetter(arreglos[i])) {
-                    System.out.print(arreglos[i] + " ");
+            for (int i = 0; i < caracters.length; i++) {
+                if (Character.isLetter(caracters[i])) {
+                    System.out.print(caracters[i] + " ");
                 }
             }
         }
@@ -112,9 +112,9 @@ public class arreglo {
         int eli = 0;
         if (Character.isLetter(letra)) {
             if (N > -1) {
-                for (int i = 0; i < arreglos.length; i++) {
-                    if (arreglos[i] == letra) {
-                        arreglos[i] = ' ';
+                for (int i = 0; i < caracters.length; i++) {
+                    if (caracters[i] == letra) {
+                        caracters[i] = ' ';
                         N--;
                         eli = 1;
                     }
@@ -178,8 +178,8 @@ public class arreglo {
     public void borrarArreglo() {
         // borrar el array
         if (N > -1){
-            for (int i = 0; i < arreglos.length; i++) {
-                arreglos[i] = ' ';
+            for (int i = 0; i < caracters.length; i++) {
+                caracters[i] = ' ';
             }
             N = -1;
             System.out.println("arreglo borrado");
