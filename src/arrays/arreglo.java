@@ -42,16 +42,16 @@ public class arreglo {
         }
     }
     public int BuscarOrdenado(char letra) {
-        int inicio = 0;
+        int inicio = -1;
         if (Character.isLetter(letra)) {
             if (N > -1){
                 for (int i = 0; i < caracters.length; i++) {
                     if (caracters[i] == letra) {
                         System.out.println("La letra " + letra + " se encuentra en la posición " + i);
-                        inicio = 1;
+                        inicio = i;
                     }
                 }
-                if (inicio == 0) {
+                if (inicio == -1) {
                     System.out.println("La letra " + letra + " no se encuentra en el arreglo");
                 }
             }
@@ -68,7 +68,7 @@ public class arreglo {
     public void mostrarArreglo() {
         // mostrar el array ordenado
         if (N > -1) {
-            for (int i = 0; i < N; i++) {
+            for (int i = 0; i < N+1; i++) {
                 if (Character.isLetter(caracters[i])) {
                     System.out.print(caracters[i]);
                 }
@@ -79,7 +79,6 @@ public class arreglo {
             System.out.println("\uD83D\uDE10");
         }
     }
-
     public int eliminarArreglo(char letra) {
         // eliminar el array
         int eli = 0;
@@ -111,13 +110,38 @@ public class arreglo {
         }
         return eli;
     }
-
+    public int eliminar_Arreglo(char letra){
+        int eli = -1;
+        if (Character.isLetter(letra)) {
+            if (N > -1) {
+                int res = BuscarOrdenado(letra);
+                if (res == -1) {
+                    System.out.println("La letra " + letra + " no se encuentra en el arreglo");
+                }
+                else {
+                    for (int k = res; k <= N-1;) {
+                        caracters[k] = caracters[k + 1];
+                        k++;
+                    }
+                    N--;
+                    eli = 1;
+                    System.out.println("La letra " + letra + " se elimino del arreglo");
+                }
+            } else {
+                System.out.println("El arreglo esta vacio");
+                System.out.println("\uD83D\uDE10");
+            }
+        } else {
+            System.out.println("No es una letra");
+        }
+        return eli;
+    }
     public void modificarArreglo(char letra, char letra2) {
         //buscar un elemento en el array y reemplazarlo
         if (N > -1){
             int res = BuscarOrdenado(letra);
-            if (res == 1) {
-                int res2 = eliminarArreglo(letra);
+            if (res != -1) {
+                int res2 = eliminar_Arreglo(letra);
                 if (res2 == 1) {
                     llenarArreglo(letra2);
                     // mostrar el array ordenado

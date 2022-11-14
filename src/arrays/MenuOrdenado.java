@@ -109,7 +109,7 @@ public class MenuOrdenado {
                                     System.out.println("5. Eliminar");
                                     System.out.println("Ingresa la letra que deseas eliminar");
                                     char letra = sn.next().charAt(0);
-                                    operaciones.eliminarArreglo(letra);
+                                    operaciones.eliminar_Arreglo(letra);
                                     System.out.println("¿Has terminado de realizar todas tus operaciones? s/n");
                                     salmen = sn.next();
                                     if (salmen.equals("s") ){
