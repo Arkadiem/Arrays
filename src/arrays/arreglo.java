@@ -197,7 +197,6 @@ public class arreglo {
     public double conforden(char letra) {
         double letranew;
         letranew = (byte) letra;
-
         if (letranew >= 97 && letranew <= 122)
             letranew = (letranew - 32) + 0.5;
         return letranew;
