@@ -33,6 +33,7 @@ public class arreglo {
                 caracters[i] = letra;
                 N++;
                 System.out.println("Se inserto en la posicion: " + i);
+                System.out.println(conforden(letra));
             } else {
                 System.out.println("El arreglo esta lleno");
             }
